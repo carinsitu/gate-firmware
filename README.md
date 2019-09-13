@@ -34,3 +34,16 @@ source ~/.profile
 virtualenv $HOME/.platformio/penv
 ```
 
+### Usage
+
+Monitor (ie. connect to serial):
+
+```
+pio device monitor
+```
+
+List available devices:
+```
+pio device list
+```
+```
