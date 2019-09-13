@@ -36,14 +36,27 @@ virtualenv $HOME/.platformio/penv
 
 ### Usage
 
-Monitor (ie. connect to serial):
+ * Compile
 
-```
-pio device monitor
-```
+     ```
+     pio run
+     ```
 
-List available devices:
-```
-pio device list
-```
-```
+ * Compile and upload
+
+    ```
+    pio run -t upload
+    ```
+
+
+ * Monitor (ie. connect to serial)
+
+    ```
+    pio device monitor
+    ```
+
+ * List available devices
+
+    ```
+    pio device list
+    ```
