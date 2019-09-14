@@ -5,8 +5,10 @@
 #include <IRremoteESP8266.h>
 #include <IRsend.h>
 
+#include "OTA.h"
+
 #define VERSION_MAJOR 0
-#define VERSION_MINOR 1
+#define VERSION_MINOR 2
 #define VERSION_PATCH 0
 
 #define NODE_TYPE_GATE 1
@@ -29,6 +31,9 @@ WiFiClient cisClient;
 
 // IR
 IRsend irsend(4);
+
+// OTA
+OTA ota;
 
 void print_wifi_status(int status) {
   switch (status) {
@@ -100,6 +105,9 @@ void setup() {
 
   // IR
   irsend.begin();
+
+  // OTA
+  ota.begin();
 }
 
 // Prototypes
@@ -117,6 +125,7 @@ void loop() {
   } else {
     // FIXME: searchCisServer();
     irsend.sendSony(0xa90, 12, 2); // 12 bits & 2 repeats
+    ota.process();
   }
 
   // Give some CPU to process internal things...
