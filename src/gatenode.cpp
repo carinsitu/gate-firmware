@@ -124,7 +124,7 @@ void loop() {
 		sendSensorsData();
 	} else {
 		// FIXME: searchCisServer();
-		irsend.sendSony(0xa90, 12, 2); // 12 bits & 2 repeats
+		irsend.sendRC6(0xa00 | 'N', 12, 2); // 12 bits & 2 repeats, RC6 gate letter
 		ota.process();
 	}
 
